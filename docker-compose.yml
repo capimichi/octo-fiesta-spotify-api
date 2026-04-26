@@ -1,0 +1,13 @@
+services:
+  octofiestaspotifyapi:
+    build:
+      context: .
+    working_dir: /app
+    ports:
+      - "${API_HOST_PORT:-8000}:${API_CONTAINER_PORT:-8000}"
+    env_file:
+      - ./.env
+    volumes:
+      - .:/app
+      - ./var:/app/var # Mount var directory for logs and downloaded files
+    command: ["sh", "-c", "uvicorn octofiestaspotifyapi.api:app --host 0.0.0.0 --port ${API_CONTAINER_PORT:-8000}"]

@@ -5,3 +5,6 @@ from octofiestaspotifyapi.provider.spotify_metadata_provider import SpotifyMetad
 class SpotifyArtistService:
     def __init__(self, metadata_provider: SpotifyMetadataProvider) -> None:
         self._metadata_provider = metadata_provider
+
+    async def get_artist(self, artist_id: str) -> dict:
+        return await self._metadata_provider.get_artist(artist_id)

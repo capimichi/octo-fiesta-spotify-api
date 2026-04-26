@@ -25,16 +25,16 @@ class SpotifyProxyService:
         self._local_library_service = local_library_service
 
     async def search(self, query: str, limit: int):
-        return {"status": "not_implemented", "query": query, "limit": limit}
+        return await self._search_service.search(query)
 
     async def get_track(self, track_id: str):
-        return {"status": "not_implemented", "track_id": track_id}
+        return await self._track_service.get_track(track_id)
 
     async def get_album(self, album_id: str):
-        return {"status": "not_implemented", "album_id": album_id}
+        return await self._album_service.get_album(album_id)
 
     async def get_artist(self, artist_id: str):
-        return {"status": "not_implemented", "artist_id": artist_id}
+        return await self._artist_service.get_artist(artist_id)
 
     async def download_track(self, track_id: str):
         return {"status": "not_implemented", "track_id": track_id}

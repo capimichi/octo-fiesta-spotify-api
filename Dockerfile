@@ -6,6 +6,8 @@ COPY requirements.txt ./
 
 RUN pip install --no-cache-dir -r requirements.txt
 RUN python -m camoufox fetch
+RUN playwright install chromium
+RUN playwright install-deps chromium
 
 COPY . .
 

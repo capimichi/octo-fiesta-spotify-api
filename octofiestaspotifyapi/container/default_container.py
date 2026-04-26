@@ -115,7 +115,7 @@ class DefaultContainer:
         from octofiestaspotifyapi.service.spotify_proxy_service import SpotifyProxyService
         from octofiestaspotifyapi.controller.spotify_controller import SpotifyController
 
-        browser_client = SpotifyBrowserClient(self.spotify_client_logger, self.spotify_browser_timeout_seconds)
+        browser_client = SpotifyBrowserClient(self.spotify_client_logger, self.spotify_browser_timeout_seconds, self.spotify_session_storage_path)
         spotiflac_client = SpotiflacClient(self.download_logger, self.spotiflac_binary, self.spotiflac_output_dir, self.spotiflac_timeout_seconds)
         
         metadata_provider = SpotifyMetadataProvider(browser_client)
